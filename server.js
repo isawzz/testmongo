@@ -1,6 +1,5 @@
 if (process.env.NODE_ENV !== 'production'){ 
 	require('dotenv').config();
-	//e.load();
 }
 
 const express = require('express')
@@ -22,7 +21,6 @@ mongoose.connect(process.env.DATABASE_URL,{})
 const db = mongoose.connection
 db.on('error',x=>console.log(x))
 db.once('open',()=>console.log('connected to mongoose'))
-
 
 app.use('/', indexRouter);
 app.listen(process.env.PORT || 3001)
