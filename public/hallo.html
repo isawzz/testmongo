@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	HALLO
+
+	<script>
+		async function start(){
+			let result = await fetch('http://localhost:3001/'); //geht nicht wegen CORS test
+			let text = await result.text();
+			document.body.innerHTML += '<br>'+text;
+		}
+		setTimeout(()=>{
+			//document.body.innerHTML = 'redirecting!!!';
+			//window.location = 'http://localhost:3001/'; //wenn mal weg bin bin weg! also mit live-server geht das so nicht!
+
+			start();
+
+			console.log('hallo'); //not executed!
+		},2000);
+	</script>
+</body>
+</html>
